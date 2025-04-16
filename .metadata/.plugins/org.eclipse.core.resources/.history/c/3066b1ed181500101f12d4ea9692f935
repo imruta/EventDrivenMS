@@ -1,0 +1,32 @@
+package com.order.service.order_service.oservice;
+
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import com.order.service.order_service.pojo.OrderInfo;
+
+@Service
+public class OrderService {
+	
+	public String createOrder()
+	{
+		OrderInfo newOrder=new OrderInfo();
+		newOrder.setOrderId(UUID.randomUUID().toString());
+		newOrder.setEmail("abc@gmail.com");
+		newOrder.setPhoneNo("123456");
+		newOrder.setOrderStatus(true);
+		orderCreatedNotification(newOrder);
+		System.out.println("order created successfully!!!.......orderservice sysout");
+		return "message from order service : order created successfully...";
+		
+	}
+
+	private String orderCreatedNotification(OrderInfo newOrder) {
+		// TODO Auto-generated method stub
+		System.out.println("notification send successfully");
+		return "notification send successfully";
+		
+	}
+
+}

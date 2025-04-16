@@ -1,0 +1,14 @@
+package com.order.service.order_service.pojo;
+
+public class OrderInfo {
+	public String OrderId;
+	public String email;
+	public String phoneNo;
+	public Boolean paymentStatus=false;
+	public Boolean orderStatus=false;
+	public OrderInfo() {
+		super();
+	}
+	
+
+}

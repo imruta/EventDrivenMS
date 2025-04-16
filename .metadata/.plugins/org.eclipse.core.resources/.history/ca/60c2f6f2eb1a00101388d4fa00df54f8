@@ -1,0 +1,32 @@
+spring.application.name=order-service
+server.port=9091
+# eureka client property
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+# actuator property
+management.endpoints.web.exposure.include=*
+management.info.env.enabled=true
+management.endpoint.shutdown.enabled=true
+
+#rabbitmq properties
+#spring.rabbitmq.host=localhost
+#spring.rabbitmq.port=5672
+#spring.rabbitmq.username=guest
+#spring.rabbitmq.password:guest
+
+
+#kafka setting
+spring.cloud.stream.kafka.binder.brokers= localhost:9092
+#sending
+spring.cloud.stream.bindings.ordercreatednotification-out-0.destination: ordercreatedexchange
+spring.cloud.stream.bindings.ordercreatednotification-out-0.content-type=application/json
+spring.cloud.stream.bindings.ordercreatednotification-out-0.group=${spring.application.name}
+
+#receiving
+spring.cloud.function.definition=receiveAckFromNotificationService
+
+spring.cloud.stream.bindings.receiveAckFromNotificationService-in-0.destination: notificationsendexchange-ack
+spring.cloud.stream.bindings.receiveAckFromNotificationService-in-0.content-type=application/json
+spring.cloud.stream.bindings.receiveAckFromNotificationService-in-0.group=${spring.application.name}

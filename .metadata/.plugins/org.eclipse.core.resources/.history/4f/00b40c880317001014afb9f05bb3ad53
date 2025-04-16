@@ -1,0 +1,29 @@
+server:
+  port: 9092
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    function:
+      definition: orderNotification
+    stream:
+      bindings:
+        orderNotification-in-0:
+          destination: ordercreatedexchange
+
+          content-type: application/json
+          group: ${spring.application.name}
+        orderNotification-out-0:
+          destination: notificationsendexchange-ack
+          content-type: application/json
+          group: ${spring.application.name}

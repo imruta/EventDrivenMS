@@ -1,0 +1,16 @@
+
+
+java:S1104"SMake OrderId a static final constant or non-public and provide accessors if needed.(ãéH÷RMINORZ
+CODE_SMELL
+‚
+java:S1104"QMake email a static final constant or non-public and provide accessors if needed.(¾Æ†ËıÿÿÿÿHøRMINORZ
+CODE_SMELL
+
+java:S1104"SMake phoneNo a static final constant or non-public and provide accessors if needed.(µô¬HùRMINORZ
+CODE_SMELL
+„
+java:S1104"YMake paymentStatus a static final constant or non-public and provide accessors if needed.(®¢HúRMINORZ
+CODE_SMELL
+ƒ
+java:S1104"WMake orderStatus a static final constant or non-public and provide accessors if needed.(ïéÚñHûRMINORZ
+CODE_SMELL
